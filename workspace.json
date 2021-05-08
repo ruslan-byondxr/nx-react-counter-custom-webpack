@@ -1,23 +1,12 @@
 {
   "version": 2,
-  "cli": {
-    "defaultCollection": "@nrwl/react"
-  },
+  "cli": { "defaultCollection": "@nrwl/react" },
   "defaultProject": "react",
   "generators": {
     "@nrwl/react": {
-      "application": {
-        "style": "css",
-        "linter": "eslint",
-        "babel": true
-      },
-      "component": {
-        "style": "css"
-      },
-      "library": {
-        "style": "css",
-        "linter": "eslint"
-      }
+      "application": { "style": "css", "linter": "eslint", "babel": true },
+      "component": { "style": "css" },
+      "library": { "style": "css", "linter": "eslint" }
     }
   },
   "projects": {
@@ -67,20 +56,14 @@
         },
         "serve": {
           "executor": "@nrwl/web:dev-server",
-          "options": {
-            "buildTarget": "react:build"
-          },
+          "options": { "buildTarget": "react:build" },
           "configurations": {
-            "production": {
-              "buildTarget": "react:build:production"
-            }
+            "production": { "buildTarget": "react:build:production" }
           }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["apps/react/**/*.{ts,tsx,js,jsx}"]
-          }
+          "options": { "lintFilePatterns": ["apps/react/**/*.{ts,tsx,js,jsx}"] }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
@@ -105,15 +88,30 @@
             "devServerTarget": "react:serve"
           },
           "configurations": {
-            "production": {
-              "devServerTarget": "react:serve:production"
-            }
+            "production": { "devServerTarget": "react:serve:production" }
           }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
+          "options": { "lintFilePatterns": ["apps/react-e2e/**/*.{js,ts}"] }
+        }
+      }
+    },
+    "ui": {
+      "root": "libs/ui",
+      "sourceRoot": "libs/ui/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": { "lintFilePatterns": ["libs/ui/**/*.{ts,tsx,js,jsx}"] }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui"],
           "options": {
-            "lintFilePatterns": ["apps/react-e2e/**/*.{js,ts}"]
+            "jestConfig": "libs/ui/jest.config.js",
+            "passWithNoTests": true
           }
         }
       }
